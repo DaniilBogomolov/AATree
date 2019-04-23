@@ -108,7 +108,7 @@ public class AATree<T extends Comparable<T>> {
         int expected = 0;
         if (root.left != null && root.right != null) {
             expected = Math.min(root.left.level, root.right.level) + 1;
-        } else if (root.left != null || root.right != null {
+        } else if (root.left == null || root.right == null) {
             expected = 1;
         }
 
