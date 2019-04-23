@@ -108,18 +108,14 @@ public class AATree<T extends Comparable<T>> {
         int expected = 0;
         if (root.left != null && root.right != null) {
             expected = Math.min(root.left.level, root.right.level) + 1;
-        } else if (root.left != null) {
-            expected = root.left.level + 1;
-        } else if (root.right != null) {
-            expected = root.right.level + 1;
-        } else {
-            return root;
+        } else if (root.left != null || root.right != null {
+            expected = 1;
         }
 
         // Try to lower our node and its right child
         if (expected < root.level) {
             root.level = expected;
-            if (expected < root.right.level) {
+            if (root.right != null && expected < root.right.level) {
                 root.right.level = expected;
             }
         }
